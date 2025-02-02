@@ -10,6 +10,12 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+// Middleware para logging de peticiones
+app.use((req, res, next) => {
+    console.log(`Petición: ${req.method} ${req.url}`);
+    next();
+});
+
 // Rutas CRUD
 app.get('/users', (req, res) => {
   const db = readDB();
@@ -28,7 +34,7 @@ app.post('/users', (req, res) => {
 
   writeDB(db);
   res.status(201).json({ message: 'Usuario creado' });
-
+  
 });
 
 app.get('/users/:id', (req, res) => {
@@ -63,7 +69,7 @@ app.put('/users/:id', (req, res) => {
 
     res.json({ message: 'Usuario modificado' });
 
-  });
+});
 
 app.delete('/users/:id', (req, res) => {
   const db = readDB();

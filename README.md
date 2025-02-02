@@ -21,3 +21,7 @@ Frontend: HTML, CSS, JavaScript (Fetch API)
 Backend: Node.js, Express
 
 Base de Datos: (Opcional, si usas MongoDB, MySQL, etc.)
+
+## Nueva funcionalidad: Registro de peticiones HTTP
+
+Se ha añadido un middleware para registrar las peticiones HTTP en la consola.
